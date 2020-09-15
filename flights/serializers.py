@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-
+from rest_framework.permissions import BasePermission
 from .models import Flight, Booking
 
 
@@ -26,6 +26,11 @@ class UpdateBookingSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Booking
 		fields = ['date', 'passengers']
+
+class UpdateBookingSerializerA(serializers.ModelSerializer):
+	class Meta:
+		model = Booking
+		fields = [ 'passengers']
 
 
 class RegisterSerializer(serializers.ModelSerializer):
